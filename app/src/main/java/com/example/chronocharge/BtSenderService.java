@@ -39,6 +39,12 @@ public class BtSenderService extends JobService {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
+            if(bLevel<100)
+                levelMessage = "0"+bLevel;
+            else
+                levelMessage ="100";
+
             btComm.sendBatteryLevel(levelMessage);
             Log.d("LEVEL", ""+bLevel);
             return null;
